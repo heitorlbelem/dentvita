@@ -11,7 +11,7 @@
     "migrations:create": "node-pg-migrate -m infra/migrations create",
     "migrations:up": "node-pg-migrate -m infra/migrations --envPath .env.development up",
     "wait-for-postgres": "node infra/scripts/wait-for-postgres.js",
-    "test": "npm run services:up && npm run wait-for-postgres && concurrently -n next,jest --hide next -k -s command-jest 'next dev' 'jest --runInBand'",
+    "test": "npm run services:up && concurrently -n next,jest --hide next -k -s command-jest 'next dev' 'jest --runInBand'",
     "test:watch": "jest --watchAll --runInBand",
     "dev": "npm run services:up && npm run wait-for-postgres && npm run migrations:up && next dev"
   },
